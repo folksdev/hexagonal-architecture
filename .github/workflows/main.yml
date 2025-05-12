@@ -6,6 +6,7 @@ on:
       - main
 
 
+
 jobs:
     build:
       runs-on: self-hosted
@@ -22,6 +23,8 @@ jobs:
     deploy:
       runs-on: self-hosted
       steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
         - name: Deploy to server
           run: |
             sudo bash -c 'cd /home/folksdev/hexagonal-architecture && docker compose up -d --build'
