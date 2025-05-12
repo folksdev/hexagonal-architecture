@@ -1,13 +1,13 @@
-package com.folksdev.hexagonal;
+package com.folksdev.infra;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HexagonalApplicationTests {
+class InfraApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
