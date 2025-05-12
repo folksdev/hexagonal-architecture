@@ -1,1 +1,28 @@
+name: CI/CD Pipeline
 
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+    build:
+      runs-on: self-hosted
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Build Docker image
+          run: |
+            sudo docker build -t backend .
+          shell: bash
+
+
+    deploy:
+      runs-on: self-hosted
+      steps:
+        - name: Deploy to server
+          run: |
+            sudo bash -c 'cd /home/folksdev/hexagonal-architecture && docker compose up -d --build'
+          shell: bash
